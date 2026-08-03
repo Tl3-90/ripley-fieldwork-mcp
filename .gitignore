@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest-tmp*/
+secrets/*
+!secrets/README.md
+state/

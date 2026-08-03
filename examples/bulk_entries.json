@@ -1,0 +1,31 @@
+{
+  "dry_run": true,
+  "stop_on_error": true,
+  "allow_duplicates": false,
+  "entries": [
+    {
+      "date": "2026-08-03",
+      "start_time": "09:00",
+      "end_time": "11:00",
+      "supervisor_id": "133282",
+      "organization_id": "78119",
+      "hour_type": "Independent",
+      "independent_restricted": 0,
+      "independent_unrestricted": 2,
+      "description": "Prepared behavior-analytic training materials."
+    },
+    {
+      "date": "2026-08-03",
+      "start_time": "13:00",
+      "end_time": "14:00",
+      "supervisor_id": "133282",
+      "organization_id": "78119",
+      "hour_type": "Supervised",
+      "supervised_individual_restricted": 0,
+      "supervised_individual_unrestricted": 1,
+      "contact_type": "Contact",
+      "format_type": "Online",
+      "description": "Reviewed data and treatment-integrity priorities with supervisor."
+    }
+  ]
+}

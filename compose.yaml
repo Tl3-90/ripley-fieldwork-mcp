@@ -1,0 +1,21 @@
+services:
+  ripley-api:
+    build:
+      context: .
+    container_name: ripley-api
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:8788:8000"
+    environment:
+      RIPLEY_BASE_URL: https://ripleyfieldworktracker.com
+      RIPLEY_ROOT_PATH: /ripley-api
+      RIPLEY_API_KEY_FILE: /run/secrets/ripley_api_key
+      RIPLEY_USERNAME_FILE: /run/secrets/ripley_username
+      RIPLEY_PASSWORD_FILE: /run/secrets/ripley_password
+      RIPLEY_COOKIE_JAR: /var/lib/ripley-api/session.cookies
+    volumes:
+      - ./secrets/ripley_api_key.txt:/run/secrets/ripley_api_key:ro
+      - ./secrets/ripley_username.txt:/run/secrets/ripley_username:ro
+      - ./secrets/ripley_password.txt:/run/secrets/ripley_password:ro
+      - ./state:/var/lib/ripley-api

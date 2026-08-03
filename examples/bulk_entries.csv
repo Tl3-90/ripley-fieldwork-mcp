@@ -1,0 +1,3 @@
+date,start_time,end_time,supervisor_id,organization_id,hour_type,independent_restricted,independent_unrestricted,supervised_individual_restricted,supervised_individual_unrestricted,supervised_group_unrestricted,observation_time,contact_type,format_type,description
+2026-08-03,09:00,11:00,133282,78119,Independent,0,2,0,0,0,0,,,Prepared behavior-analytic training materials.
+2026-08-03,13:00,14:00,133282,78119,Supervised,0,0,0,1,0,0,Contact,Online,Reviewed data and treatment-integrity priorities with supervisor.

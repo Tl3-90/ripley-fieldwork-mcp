@@ -1,0 +1,12 @@
+.env
+.git
+.gitignore
+.pytest_cache
+.pytest-tmp*
+__pycache__
+*.pyc
+secrets
+tests
+examples
+start.ps1
+VERIFICATION.md

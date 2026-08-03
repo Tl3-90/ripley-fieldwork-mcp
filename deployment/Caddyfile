@@ -1,0 +1,13 @@
+digi.hopto.me {
+	redir /ripley-api /ripley-api/ 308
+
+	handle_path /ripley-api/* {
+		reverse_proxy 127.0.0.1:8788
+	}
+
+	reverse_proxy 127.0.0.1:5678
+}
+
+rsp.access.ly {
+	reverse_proxy 127.0.0.1:8502
+}
