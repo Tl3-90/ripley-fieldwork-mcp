@@ -15,6 +15,7 @@ launch_agent_label="com.ripley.codex-mcp-environment"
 launch_agent_path="$HOME/Library/LaunchAgents/$launch_agent_label.plist"
 temporary_config=""
 token=""
+embedded_token_base64=""
 
 cleanup() {
     if [[ -n "$temporary_config" && -f "$temporary_config" ]]; then
@@ -79,13 +80,18 @@ echo "Ripley MCP setup for Codex on Mac"
 echo "----------------------------------"
 echo ""
 
-token=$(/usr/bin/security find-generic-password \
-    -a "$USER" -s "$keychain_service" -w 2>/dev/null || true)
-
-if [[ -n "$token" ]]; then
-    echo "A saved Ripley connection key was found. It will be reused."
+if [[ -n "$embedded_token_base64" ]]; then
+    token=$(printf "%s" "$embedded_token_base64" | /usr/bin/base64 -D 2>/dev/null) || \
+        finish_with_error "The included connection key could not be read."
+    echo "The included Ripley connection key will be installed."
 else
-    read_private_token
+    token=$(/usr/bin/security find-generic-password \
+        -a "$USER" -s "$keychain_service" -w 2>/dev/null || true)
+    if [[ -n "$token" ]]; then
+        echo "A saved Ripley connection key was found. It will be reused."
+    else
+        read_private_token
+    fi
 fi
 
 if ! token_looks_valid; then
@@ -93,7 +99,8 @@ if ! token_looks_valid; then
 fi
 
 if ! connection_is_healthy; then
-    if /usr/bin/security find-generic-password \
+    if [[ -z "$embedded_token_base64" ]] && \
+        /usr/bin/security find-generic-password \
         -a "$USER" -s "$keychain_service" >/dev/null 2>&1; then
         echo "The saved key is no longer valid. Enter the current key."
         token=""
@@ -102,7 +109,7 @@ if ! connection_is_healthy; then
             finish_with_error "The Ripley service rejected that connection key."
         fi
     else
-        finish_with_error "The Ripley service rejected that connection key."
+        finish_with_error "The Ripley service rejected the included connection key."
     fi
 fi
 

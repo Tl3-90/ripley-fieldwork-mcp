@@ -217,6 +217,11 @@ that restores the Keychain-backed token after login or restart. If macOS blocks
 the first double-click because the file was downloaded, Control-click the file,
 choose **Open**, and confirm **Open** once.
 
+Thomas can create a personalized ZIP that includes the bearer token by running
+`scripts/build-personalized-mac-package.ps1` on the configured Windows PC. The
+resulting ZIP is intentionally created outside the repository and must never be
+committed or uploaded because it grants live Ripley write access.
+
 ### Codex CLI
 
 Keep the token in an environment variable, then register the hosted endpoint:
