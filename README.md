@@ -225,10 +225,11 @@ finishes, fully quit and reopen Codex, then call `ripley_check_health` from a ne
 chat. The installer automatically skips interactive pauses when an agent runs
 it without a terminal.
 
-Thomas can create a personalized ZIP that includes the bearer token by running
-`scripts/build-personalized-mac-package.ps1` on the configured Windows PC. The
-resulting ZIP is intentionally created outside the repository and must never be
-committed or uploaded because it grants live Ripley write access.
+Thomas can rebuild both Mac ZIPs by running
+`scripts/build-personalized-mac-package.ps1` on the configured Windows PC. It
+writes a token-free standard ZIP and a personalized ZIP outside the repository.
+The personalized ZIP must never be committed or publicly uploaded because it
+grants live Ripley write access.
 
 ### Codex CLI
 
