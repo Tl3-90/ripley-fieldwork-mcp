@@ -217,6 +217,14 @@ that restores the Keychain-backed token after login or restart. If macOS blocks
 the first double-click because the file was downloaded, Control-click the file,
 choose **Open**, and confirm **Open** once.
 
+If Codex is already installed, the intended user can instead attach the
+personalized ZIP to a Codex chat and ask Codex to install it. The agent should
+extract the ZIP, run the included `.command` file, verify the Ripley entry in
+`~/.codex/config.toml`, and avoid printing the embedded token. After the agent
+finishes, fully quit and reopen Codex, then call `ripley_check_health` from a new
+chat. The installer automatically skips interactive pauses when an agent runs
+it without a terminal.
+
 Thomas can create a personalized ZIP that includes the bearer token by running
 `scripts/build-personalized-mac-package.ps1` on the configured Windows PC. The
 resulting ZIP is intentionally created outside the repository and must never be
