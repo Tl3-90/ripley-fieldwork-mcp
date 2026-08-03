@@ -199,6 +199,24 @@ backup of any existing Codex configuration. It does not install another server,
 Docker image, workflow, or local MCP process. Never place the bearer token in
 GitHub.
 
+### One-click Codex setup on macOS
+
+No GitHub account or terminal work is required if Thomas sends the installer
+file directly:
+
+1. Install Codex and sign in once.
+2. Double-click `INSTALL-RIPLEY-MCP-MAC.command`.
+3. Paste the private bearer token when prompted. It is hidden while being
+   entered and is stored in macOS Keychain.
+4. Close Codex completely and reopen it.
+5. Start a new chat and say: `Check my Ripley connection.`
+
+The Mac installer is a single file. It registers the hosted MCP in Codex,
+verifies the live Ripley account connection, and installs a user LaunchAgent
+that restores the Keychain-backed token after login or restart. If macOS blocks
+the first double-click because the file was downloaded, Control-click the file,
+choose **Open**, and confirm **Open** once.
+
 ### Codex CLI
 
 Keep the token in an environment variable, then register the hosted endpoint:
