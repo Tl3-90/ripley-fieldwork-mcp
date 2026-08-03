@@ -180,6 +180,25 @@ The MCP endpoint provides ten purpose-built AI tools:
 
 Create, bulk-create, update, and delete require `confirm=true`. Read and validation tools are explicitly marked read-only in their MCP annotations. The JSON/CSV REST routes remain available for normal scripts; AI clients should prefer the structured MCP tools.
 
+### One-click Codex setup on Windows
+
+This is the simplest setup for the intended user and does not require a
+terminal:
+
+1. Install Codex and sign in once.
+2. Download and extract this private repository.
+3. Double-click `INSTALL-RIPLEY-MCP.cmd`.
+4. Paste the private bearer token when prompted. It is hidden while being
+   entered and is saved only to the Windows user environment.
+5. Close Codex completely and reopen it.
+6. Start a new chat and say: `Check my Ripley connection.`
+
+The installer registers the hosted MCP in the user's standard Codex
+configuration, verifies the live Ripley account connection, and preserves a
+backup of any existing Codex configuration. It does not install another server,
+Docker image, workflow, or local MCP process. Never place the bearer token in
+GitHub.
+
 ### Codex CLI
 
 Keep the token in an environment variable, then register the hosted endpoint:
